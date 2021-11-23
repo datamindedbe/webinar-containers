@@ -28,6 +28,28 @@ resource "aws_iam_policy" "execution_role" {
 }
 
 data "aws_iam_policy_document" "execution_role" {
+    statement {
+      sid = ""
+      actions = [
+          "ecs:RunTask",
+          "ecs:DescribeTasks"
+      ]
+      effect = "Allow"
+      resources = ["*"]
+    }
+
+    statement {
+      sid = ""
+      actions = ["iam:PassRole"]
+      effect = "Allow"
+      resources = ["*"]
+      condition {
+        test = "StringLike"
+        variable = "iam:PassedToService"
+        values = ["ecs-tasks.amazonaws.com"]
+      }
+    }
+
   statement {
     sid       = ""
     actions   = ["airflow:PublishMetrics"]
@@ -119,6 +141,9 @@ data "aws_iam_policy_document" "execution_role" {
       "logs:DescribeLogGroups"
     ]
     effect    = "Allow"
-    resources = ["arn:aws:logs:eu-west-1:130966031144:log-group:airflow-titanic_demo-*"]
+    resources = [
+      "arn:aws:logs:eu-west-1:130966031144:log-group:airflow-titanic_demo-*",
+      "arn:aws:logs:*:*:log-group:/webinar-containers/titanic-predictor-logs:log-stream:*",
+    ]
   }
 }

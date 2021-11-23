@@ -21,11 +21,12 @@ def get_task(name, command):
         task_id=name,
         dag=dag,
         cluster="webinar-containers",
-        task_definition="titanic-predictor",
+        task_definition=name,
         launch_type="FARGATE",
         overrides={
             "containerOverrides": [
                 {
+                    "name": name,
                     "command": command,
                 },
             ],
@@ -38,7 +39,7 @@ def get_task(name, command):
             },
         },
         awslogs_group="/webinar-containers/titanic-predictor-logs",
-        awslogs_stream_prefix=name,
+        awslogs_stream_prefix=f"ecs/{name}",
     )
 
 ingest_training = get_task("ingest_training", [
