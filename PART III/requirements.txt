@@ -3,3 +3,4 @@ pandas==1.3.4
 awswrangler==2.12.1
 scikit-learn==1.0.1
 joblib==1.1.0
+sagemaker
