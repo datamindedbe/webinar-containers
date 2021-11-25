@@ -1,0 +1,13 @@
+docker:
+  path: .
+id: 846680ed-06d6-4206-8e1f-944345648598
+name: titanic-predictor
+resources:
+  path: resources
+streaming:
+  filename: streaming.yaml
+template: ""
+version: "0.3"
+workflows:
+  path: dags
+  version: "2"

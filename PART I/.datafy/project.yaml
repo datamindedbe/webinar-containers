@@ -1,0 +1,13 @@
+docker:
+  path: .
+id: 4d74c2e9-9c6c-4af8-bbc1-3924604e620f
+name: test-webinar-containers
+resources:
+  path: resources
+streaming:
+  filename: streaming.yaml
+template: ""
+version: "0.3"
+workflows:
+  path: dags
+  version: "2"

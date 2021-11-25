@@ -2,7 +2,7 @@
 
 This directory contains the code that was used during the hands-on section of the first webinar on containers.
 You can rewatch this webinar here:
-https://www.dataminded.be/webinar-fromnotebookhelltocontainerheaven
+https://www.dataminded.be/webinars
 
 # How to build the Titanic survival predictor Docker image
 To build the image, you need Docker installed on your machine.
